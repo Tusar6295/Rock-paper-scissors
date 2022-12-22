@@ -1,5 +1,9 @@
 const buttons = document.querySelectorAll('div#buttons button');
 const reload = document.getElementById('again');
+const p = document.querySelector('#para');
+const pScore = document.querySelector('#pscore');
+const cScore = document.querySelector('#cscore');
+const result = document.querySelector('#winner');
 
 reload.addEventListener('click', (e) => {location.reload()})
 
@@ -7,16 +11,8 @@ buttons.forEach(button => {
     button.addEventListener('click', getPlayerChoice);
 })
 
-let rock = "rock";
-let paper = "paper";
-let scissors = "scissors";
 let compScore = 0;
 let playerScore = 0;
-
-const p = document.querySelector('#para');
-const pScore = document.querySelector('#pscore');
-const cScore = document.querySelector('#cscore');
-const result = document.querySelector('#winner');
 
 pScore.textContent = playerScore;
 cScore.textContent = compScore;
@@ -102,11 +98,11 @@ function checkWinner(){
     if(playerScore === 5 || compScore === 5)
     {
         if(playerScore === 5){
-            result.textContent = "You win!!!";
+            result.textContent = "You win the game!!!";
         }
         else if(compScore === 5)
         {
-            result.textContent = "You lose!!!";
+            result.textContent = "You lose the game!!!";
         }
         else if(playerScore === 5 && compScore === 5){
             result.textContent = "It's a draw";
