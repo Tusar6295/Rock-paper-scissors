@@ -3,74 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta naame="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <script src="script.js" defer></script>
+    <style>
+        .cont{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        .container{
+            background-color: #f4f4f4;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 500px;
+            height: 200px;
+            gap: 30px;
+        }
+
+        .score{
+            margin-top: 12px;
+            width: 500px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .player,.computer{
+            background-color: #f4f4f4;
+            border: 2px solid black;
+            width: 240px;
+            height: 60px;
+            text-align: center;
+
+        }
+        button{
+            width: 115px;
+            height: 45px;
+            font-size: 16px;
+            color: white;
+            border-radius: 6px;
+            background-color: rgb(75, 75, 83);
+        }
+        
+        button:hover{
+            background-color: #a09999;
+            color: black;
+        }
+        #results{
+            background-color: #f4f4f4;
+            text-align: center;
+            border: 2px solid black;
+            width: 500px;
+            height: 100px;
+            margin-top: 12px;
+        }
+
+        p{
+            font-size: 18px;
+            margin-top: 6px;
+        }
+        h4{
+            margin-bottom: 0px;
+            margin-top: 8px;
+        }
+        
+        #again{
+            margin-left: 192px;
+            margin-top: 12px;
+        }
+    </style>
 </head>
 <body>
-    <script>
-        function getComputerChoice()
-        {
-            let computerChoice = Math.random();
-            if(computerChoice < 0.33)
-            {
-                computerChoice = 'rock';
-            }
-            else if(computerChoice < 0.67)
-            {
-                computerChoice = 'paper';
-            }
-            else {
-                computerChoice = 'scissors';
-            }
-            return computerChoice;
-        }
+    <div class="cont">
+        <div id="buttons" class="container">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
 
-        
-        function playRound(playerSelection,computerSelection)
-        {
-            if(playerSelection == computerSelection)
-            {
-                console.log("Tie game");
-            }
-            else if(playerSelection == "rock" && computerSelection == "scissors")
-            {
-                console.log("You win, rock beats scissors!!");
-            }
-            else if(playerSelection == "rock" && computerSelection == "paper")
-            {
-                console.log("You lose, paper beats rock!!");
-            }
-            else if(playerSelection == "scissors" && computerSelection == "rock")
-            {
-                console.log("You lose, rock beats scissors!!");
-            }
-            else if(playerSelection == "scissors" && computerSelection == "paper")
-            {
-                console.log("You win, scissors beats paper!!");
-            }
-            else if(playerSelection == "paper" && computerSelection == "scissors")
-            {
-                console.log("You lose, scissors beats paper!!");
-            }
-            else if(playerSelection == "paper" && computerSelection == "rock")
-            {
-                console.log("You win, paper beats rock!!");
-            }
-        }
-        
-        function game()
-        {
-            for(i=0; i<5; i++)
-            {
-                let computerSelection = getComputerChoice();
-                let txt = prompt("do you want rock , paper or scissors?");
-                let playerSelection = txt.toLowerCase();
-                console.log(playRound(playerSelection, computerSelection));
-            }
-        }
+        <div class="score">
+            <div class="player">
+                <h4>Player Score</h4>
+                <p id="pscore"></p>
+            </div>
+            <div class="computer">
+                <h4>Computer Score</h4>
+                <p id="cscore"></p>
+            </div>
+        </div>
 
-        game();
-        
-    </script>
+        <div id="results">
+            <h4>RESULTS</h4>
+            <p id="para"></p>
+            <h3 id="winner"></h3>
+        </div>
+
+        <div class="again">
+            <button id="again">Play again</button>
+        </div>
+    </div>
+
+</body>
 </body>
 </html>
